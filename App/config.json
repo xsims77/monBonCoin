@@ -1,10 +1,8 @@
 {
-    "name" : "monBonCoin",
-        "dbName" : "monboncoin",
-        "user" : "root",
-        "password" : "",
-        "host" : "localhost",
-
-    "baseSite" : "localhost/monboncoin/public/"
-
+    "name": "monBonCoin",
+    "dbName": "monboncoin",
+    "user": "root",
+    "password": "",
+    "host": "localhost",
+    "baseSite": "/monboncoin/public/"
 }
