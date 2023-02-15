@@ -1,6 +1,9 @@
 <?php
 namespace App;
 
+use Controlers\AnnoncesControler;
+use Controlers\Controler;
+
 class Routeur{
     public function app(){
         // On teste le routeur
@@ -22,13 +25,18 @@ class Routeur{
         // On défini les routes du projet 
         switch ($request){
             case '':
-                echo "vous êtes sur la page d'accueil";
+                // echo "vous êtes sur la page d'accueil";
+                AnnoncesControler::accueil();
                 break;
             case 'annonces':
                 echo "vous êtes sur la page annonces";
                 break;
             case 'annonceDetail':
-                echo "vous êtes sur la page détail de l'annonce";
+                // echo "vous êtes sur la page détail de l'annonce";
+                if(isset($_GET['id'])){
+                    $id = (int)$_GET['id'];
+                    AnnoncesControler::detail($id);
+                }
                 break;
             case 'annonceAjout':
                 echo "vous êtes sur la page création d'annonce";

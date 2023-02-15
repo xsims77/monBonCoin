@@ -1,0 +1,21 @@
+.logo {
+    width: 50px;
+}
+
+.imgAnnonce{
+    width: 400px;
+}
+
+.grow{
+    transition: all .2s ease-in-out;
+}
+
+.grow:hover{
+    transform: scale(1.5);
+    rotate: 10deg;
+}
+
+.price{
+    font-style: italic;
+    font-weight: bold;
+}

@@ -35,6 +35,15 @@ class AnnoncesModel extends Db{
         return $response->fetchAll(PDO::FETCH_ASSOC);
     }
 
+    public static function findById($id){
+        $request = "SELECT * FROM annonces WHERE idAnnonce = ?";
+        $response = self::getDb()->prepare($request);
+        $response->execute($id);
+
+        return $response->fetch(PDO::FETCH_ASSOC);
+    }
+
+
     // Méthode pour trouver toutes les annonces d'un user
     public static function findByUser($idUser){
         $request = "SELECT * FROM annonces WHERE idUser = ?";
