@@ -13,13 +13,13 @@ class AnnoncesModel extends Db{
     //Méthode pour trouver toutes les annonces
     public static function findAll($order = null, $limit = null){
         // if($order === null){
-        //     $request = "SELECT * ,annonces.title AS title, categories.title AS NameCat FROM annonces INNER JOIN categories ON annonces.idCategorie = categories.idCategorie" . $limit;
+        //     $request = "SELECT * ,annonces.title AS title, categories.title AS nameCat FROM annonces INNER JOIN categories ON annonces.idCategorie = categories.idCategorie" . $limit;
         // }else{
-        //     $request = "SELECT * ,annonces.title AS title, categories.title AS NameCat FROM annonces INNER JOIN categories ON annonces.idCategorie = categories.idCategorie ORDER BY " . $order . " " .$limit;
+        //     $request = "SELECT * ,annonces.title AS title, categories.title AS nameCat FROM annonces INNER JOIN categories ON annonces.idCategorie = categories.idCategorie ORDER BY " . $order . " " .$limit;
         // }
 
         // Même chose mais plus propre
-        $request = "SELECT * ,annonces.title AS title, categories.title AS NameCat FROM annonces INNER JOIN categories ON annonces.idCategorie = categories.idCategorie";
+        $request = "SELECT * ,annonces.title AS title, categories.title AS nameCat FROM annonces INNER JOIN categories ON annonces.idCategorie = categories.idCategorie";
         // if($order !==null){
         //     $request .= " ORDER BY " . $order;
         // }
@@ -54,8 +54,9 @@ class AnnoncesModel extends Db{
     }
 
     // Méthode pour trouver les annonces d'une catégorie
-    public static function findByCat($idCategorie){
-        $request = "SELECT * FROM annonces WHERE idCategorie = ?";
+    public static function findByCat($idCategorie, $order = null){
+        $request = "SELECT *,annonces.title AS title, categories.title AS nameCat FROM annonces INNER JOIN categories ON annonces.idCategorie = categories.idCategorie WHERE annonces.idCategorie = ?";
+        $order ? $request .= " ORDER BY " . $order : null;
         $response = self::getDb()->prepare($request);
         $response->execute($idCategorie);
 

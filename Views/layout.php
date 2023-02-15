@@ -11,7 +11,7 @@
   <link rel="stylesheet" href="https://bootswatch.com/5/quartz/bootstrap.min.css">
   <!-- CDN icon boostrap -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
-  <link rel="stylesheet" href="../public/css/style.css">
+  <link rel="stylesheet" href="<?= SITEBASE ?>/css/style.css">
 
 </head>
 
@@ -19,7 +19,7 @@
   <!-- Barre de navigation -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container-fluid">
-      <a href="<?= SITEBASE ?>" class="navbar-brand"><img class="logo" src="<?= SITEBASE ?>/img/logo.jpg" alt="logo"></a>
+      <a href="<?= SITEBASE ?>"><img class="logo" src="<?= SITEBASE ?>/img/logo.jpg" alt="logo"></a>
       <div class="collapse navbar-collapse" id="navbarColor02">
         <ul class="navbar-nav me-auto">
           <li class="nav-item">
@@ -29,9 +29,6 @@
           </li>
           <li class="nav-item">
             <a class="nav-link" href="annonces">Toutes mes annonces</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="annonceDetail">Détail de mes annonces</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">About</a>
