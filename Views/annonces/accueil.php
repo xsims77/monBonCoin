@@ -1,8 +1,16 @@
 <?php
 // var_dump($annonces)
 
+if (isset($_SESSION['message'])){
+    $message = $_SESSION['message'];
+    unset($_SESSION['message']);
 
-
+    echo '<div class="alert alert-dismissible bg-info">
+    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+    <h4 class="alert-heading">Félicitation !</h4>
+        <p><strong>' . $message . ' </strong></p>
+    </div>';
+}
 
 ?>
 

@@ -3,6 +3,7 @@ namespace App;
 
 use Controlers\AnnoncesControler;
 use Controlers\Controler;
+use Controlers\UsersControler;
 
 class Routeur{
     public function app(){
@@ -57,7 +58,8 @@ class Routeur{
                 echo "vous êtes sur la page panier";
                 break;
             case 'inscription':
-                echo "vous êtes sur la page inscription";
+                // echo "vous êtes sur la page inscription";
+                $inscription = UsersControler::inscription();
                 break;
             case 'connexion':
                 echo "vous êtes sur la page de connexion";
