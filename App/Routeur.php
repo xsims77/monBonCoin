@@ -50,7 +50,13 @@ class Routeur{
                 $newAnnonce = AnnoncesControler::annonceAjout();
                 break;
             case 'annonceModif':
-                echo "vous êtes sur la page de modification d'annonce";
+                // echo "vous êtes sur la page de modification d'annonce";
+                if(isset($_SESSION['user'])){
+                    $id = $_GET['id'];
+                    $updateAnnonce = AnnoncesControler::annonceModif($id);
+                }else{
+                    header('Location: connexion');
+                }
                 break;
             case 'annonceSuppr':
                 echo "vous êtes sur la page de suppression d'annonce";

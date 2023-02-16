@@ -19,3 +19,12 @@
     font-style: italic;
     font-weight: bold;
 }
+
+
+.gros, .grow{
+    transition: all .2s ease-in-out;
+}
+
+.gros, .grow:hover{
+    transform: scale(3);
+}
