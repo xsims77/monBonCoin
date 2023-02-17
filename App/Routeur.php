@@ -59,7 +59,17 @@ class Routeur{
                 }
                 break;
             case 'annonceSuppr':
-                echo "vous êtes sur la page de suppression d'annonce";
+                // echo "vous êtes sur la page de suppression d'annonce";
+                if(isset($_SESSION['user'])){
+                    $id = (int)$_GET['id'];
+                    $annonSuppr = AnnoncesControler::annonSuppr($id);
+                }else{
+                    header('Location: connexion');
+                }
+                   
+                break;
+            case 'confirmSupp':
+                AnnoncesControler::confirmSupp($_GET['id']);
                 break;
             case 'panier':
                 echo "vous êtes sur la page panier";
@@ -78,7 +88,12 @@ class Routeur{
                 header('Location: ' . SITEBASE);
                 break;
             case 'profil':
-                echo "vous êtes sur la page de profil";
+                // echo "vous êtes sur la page de profil";
+                if (isset($_SESSION['user'])){
+                    $profil = UsersControler::profil();
+                }else{
+                    header('Location: connexion');
+                }
                 break;
             default:
                 echo "Cette page n'existe pas ";

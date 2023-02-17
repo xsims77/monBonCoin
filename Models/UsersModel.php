@@ -98,4 +98,5 @@ class UsersModel extends Db{
         $response = self::getDb()->prepare($request);
         $response->execute($id);
     }
+
 }

@@ -46,7 +46,7 @@ class AnnoncesModel extends Db{
 
     // Méthode pour trouver toutes les annonces d'un user
     public static function findByUser($idUser){
-        $request = "SELECT * FROM annonces WHERE idUser = ?";
+        $request = "SELECT * ,annonces.title AS title, categories.title AS nameCat FROM annonces INNER JOIN categories ON annonces.idCategorie = categories.idCategorie WHERE idUser = ?";
         $response = self::getDb()->prepare($request);
         $response->execute($idUser);
 
