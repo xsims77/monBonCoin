@@ -30,9 +30,6 @@
           <li class="nav-item">
             <a class="nav-link" href="annonces">Toutes mes annonces</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">About</a>
-          </li>
         </ul>
         <ul class="navbar-nav ml-auto ">
           <?php if(isset($_SESSION['user'])) : ?>
@@ -43,7 +40,7 @@
             <li class="nav-item"><a href="connexion" class="btn btn-secondary">Connexion</a></li>
           <?php endif ?>
           <?php if(isset($_SESSION['panier'])) :?>
-            <li class="nav-item ms-1"><a href="panier,opp=affiche" class="btn btn-secondary"><i class="bi bi-cart4"></i></a></li>
+            <li class="nav-item ms-1"><a href="panier?operation=voir" class="btn btn-secondary"><i class="bi bi-cart4"></i><span class="small"><?= count($_SESSION['panier'])  ?></span></a></li>
           <?php endif ?>
         </ul>
       </div>

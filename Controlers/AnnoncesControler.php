@@ -4,6 +4,7 @@ namespace Controlers;
 
 use Models\AnnoncesModel;
 use Models\CategoriesModel;
+use Models\UsersModel;
 
 class AnnoncesControler extends Controler
 {
@@ -24,15 +25,18 @@ class AnnoncesControler extends Controler
     public static function detail(int $id)
     {
         $annonce = AnnoncesModel::findById([$id]);
+        $id = $annonce['idUser'];
+        $user = UsersModel::findById([$id]);
         $msg = '';
         if (!$annonce) {
             $msg = "Cette annonce n'existe pas";
         }
-        // On utilise 
+        // On utilise le render()
         self::render('annonces/detail', [
             'title' => 'Détail de l\'annonce',
             'annonce' => $annonce,
-            'msg' => $msg
+            'msg' => $msg,
+            'user' => $user
         ]);
     }
 
@@ -192,6 +196,6 @@ class AnnoncesControler extends Controler
         AnnoncesModel::delete([$id]);
         $_SESSION['messages'] = 'annonce supprimée';
         header('Location: profil');
-     }
-     
     }
+     
+}
